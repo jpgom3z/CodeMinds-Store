@@ -7,21 +7,23 @@ GO
 USE StoreDB;
 GO
 
---CREATE CATEGORY
-IF NOT EXISTS (SELECT * FROM sys.sysobjects WHERE name = 'Category' AND xtype = 'U')
-CREATE TABLE [Category] (
-  Id INT NOT NULL IDENTITY(1,1),
-  [Name] NVARCHAR(50) NOT NULL,
-  CONSTRAINT PKCategory PRIMARY KEY (Id)
-)
-GO
-
 --CREATE CATEGORY STATE
 IF NOT EXISTS (SELECT * FROM sys.sysobjects WHERE name = 'CategoryState' AND xtype = 'U')
 CREATE TABLE [CategoryState] (
   Id INT NOT NULL IDENTITY(1,1),
-  [Name] NVARCHAR(50) NOT NULL,
+  [Name] NVARCHAR(50) NOT NULL UNIQUE,
   CONSTRAINT PKCategoryState PRIMARY KEY (Id)
+)
+GO
+
+--CREATE CATEGORY
+IF NOT EXISTS (SELECT * FROM sys.sysobjects WHERE name = 'Category' AND xtype = 'U')
+CREATE TABLE [Category] (
+  Id INT NOT NULL IDENTITY(1,1),
+  [Name] NVARCHAR(50) NOT NULL UNIQUE,
+  CONSTRAINT PKCategory PRIMARY KEY (Id),
+[CategoryStateId] INT NOT NULL,
+CONSTRAINT FKCategoryCategoryStateCategoryStateId FOREIGN KEY (CategoryStateId) REFERENCES CategoryState (Id),
 )
 GO
 
@@ -29,7 +31,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.sysobjects WHERE name = 'ProductState' AND xtype = 'U')
 CREATE TABLE [ProductState] (
   Id INT NOT NULL IDENTITY(1,1),
-  [Name] NVARCHAR(50) NOT NULL,
+  [Name] NVARCHAR(50) NOT NULL UNIQUE,
   CONSTRAINT PKProductState PRIMARY KEY (Id)
 )
 GO
@@ -38,7 +40,7 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.sysobjects WHERE name = 'Product' AND xtype = 'U')
 CREATE TABLE [Product] (
   Id INT NOT NULL IDENTITY(1,1),
-  [Name] NVARCHAR(50) NOT NULL,
+  [Name] NVARCHAR(50) NOT NULL UNIQUE,
   [Description] NVARCHAR(255) NOT NULL,
   [Price] DECIMAL(10,2) NOT NULL,
   [CategoryId] INT NOT NULL,
@@ -53,9 +55,9 @@ GO
 IF NOT EXISTS (SELECT * FROM sys.sysobjects WHERE name = 'Stock' AND xtype = 'U')
 CREATE TABLE [Stock] (
   Id INT NOT NULL IDENTITY(1,1),
-  [Quantity] DECIMAL(10,2) NOT NULL,
+  [Quantity] INT NOT NULL,
   [TransactionDate] DATETIME2 NOT NULL,
-  [ProductId] INT NOT NULL,
+  [ProductId] INT NOT NULL UNIQUE,
   CONSTRAINT PKStock PRIMARY KEY (Id),
   CONSTRAINT FKProductStockProductId FOREIGN KEY (ProductId) REFERENCES Product (Id),
 )
