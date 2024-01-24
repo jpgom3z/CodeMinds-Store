@@ -6,6 +6,7 @@ Table Product {
   Description nvarchar (255)
   Name nvarchar (50, UX)
   Price Decimal(10,2)
+  Stock integer
   CategoryId integer (FK Category.Id)
   ProductStateId integer (FK ProductState.Id)
 }
