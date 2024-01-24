@@ -15,12 +15,6 @@ Table ProductState {
   Name nvarchar (50)
 }
 
-Table Stock {
-  Id integer [primary key]
-  Quantity integer (999)
-  ProductId integer (FK Product.Id)
-}
-
 Table Category {
   Id integer [primary key]
   Name nvarchar (50)
@@ -41,6 +35,7 @@ Table Order {
   CustomerPhone nvarchar(8)
   CustomerEmail nvarchar (50)
   CustomerAddress nvarchar (200)
+  TotalPrice Decimal(10,2)
 }
 
 Table OrderProduct {
@@ -48,7 +43,7 @@ Table OrderProduct {
   OrderId integer (FK Order.Id)
   ProductId integer (FK Product.Id)
   Quantity integer (999)
-  Total Decimal(10,2)
+  ProductPrice Decimal(10,2)
 }
 
 ref: Category.Id < Product.CategoryId
@@ -56,4 +51,3 @@ ref: Order.Id < OrderProduct.OrderId
 ref: Product.Id < OrderProduct.ProductId
 ref: ProductState.Id > Product.ProductStateId
 ref: CategoryState.Id > Category.CategoryStateId
-ref: Stock.ProductId < Product.Id
