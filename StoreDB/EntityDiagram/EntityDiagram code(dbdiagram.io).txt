@@ -4,7 +4,7 @@
 Table Product {
   Id integer [primary key]
   Description nvarchar (255)
-  Name nvarchar (50)
+  Name nvarchar (50, UX)
   Price Decimal(10,2)
   CategoryId integer (FK Category.Id)
   ProductStateId integer (FK ProductState.Id)
@@ -17,7 +17,7 @@ Table ProductState {
 
 Table Category {
   Id integer [primary key]
-  Name nvarchar (50)
+  Name nvarchar (50, UX)
   CategoryStateId integer (FK CategoryState.Id)
 }
 
@@ -29,8 +29,7 @@ Table CategoryState {
 Table Order {
   Id integer [primary key]
   Date datetime2
-  CustomerFirstName nvarchar (50)
-  CustomerLastName nvarchar (50)
+  CustomerName nvarchar (50)
   CustomerDocumentId nvarchar (9)
   CustomerPhone nvarchar(8)
   CustomerEmail nvarchar (50)
