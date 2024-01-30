@@ -1,0 +1,76 @@
+﻿using API.Data;
+using API.DataTransferObjects;
+namespace API.Validators.ProductValidator
+{
+    public class ProductValidator : IProductValidator
+    {
+        private readonly StoreDB _database;
+
+        public ProductValidator(StoreDB database)
+        {
+            _database = database;
+        }
+
+        public bool ValidateInsertUpdate(InsertUpdateProductDTO data, List<string> messages)
+        {
+            List<string> innerMessages = new();
+
+            // Name validator
+            if (string.IsNullOrWhiteSpace(data.Name))
+            {
+                innerMessages.Add("El nombre del producto es requerido");
+            }
+            else if (data.Name.Length > 50)
+            {
+                innerMessages.Add("El nombre del producto no puede contener más de 50 caracteres");
+            }
+            // Description validator
+            if (string.IsNullOrWhiteSpace(data.Description))
+            {
+                innerMessages.Add("La descripción del producto es requerida");
+            }
+            else if (data.Description.Length > 255)
+            {
+                innerMessages.Add("La descripción del producto no puede contener más de 255 caracteres");
+            }
+            // Stock validator
+            if (!data.Stock.HasValue)
+            {
+                innerMessages.Add("La cantidad del producto es requerida");
+            }
+            else if (data.Stock < 0)
+            {
+                innerMessages.Add("La cantidad del producto debe ser mayor o igual a 0");
+            }
+            // Price validator
+            if (!data.Price.HasValue)
+            {
+                innerMessages.Add("Precio del producto es requerido");
+            }
+            else if (data.Price < 0)
+            {
+                innerMessages.Add("Precio del producto debe ser mayor o igual a 0");
+            }
+            // Category validator
+            if (!data.CategoryId.HasValue)
+            {
+                innerMessages.Add("Categoría es requerida");
+            }
+            else if (!_database.Product.Any(c => c.Id == data.CategoryId))
+            {
+                innerMessages.Add("Debe seleccionar una categoría que esté registrada en el sistema");
+            }
+            // ProductState validator
+            if (!data.ProductStateId.HasValue)
+            {
+                innerMessages.Add("Estado del producto es requerido");
+            }
+            else if (!_database.Product.Any(p => p.Id == data.ProductStateId))
+            {
+                innerMessages.Add("Debe seleccionar un estado del producto que esté registrado en el sistema");
+            }
+            messages.AddRange(innerMessages);
+            return !innerMessages.Any();
+        }
+    }
+}
