@@ -10,4 +10,10 @@ namespace API.DataTransferObjects
 
         public GetCategoryStateDTO CategoryState { get; set; } = null!;
     }
+
+    public class InsertUpdateCategoryDTO
+    {
+        public string? Name { get; set; }
+        public int? CategoryStateId { get; set; }
+    }
 }

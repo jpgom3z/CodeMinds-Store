@@ -42,10 +42,20 @@ namespace API.Services
             await this._database.Entry(entity).Reference(c => c.CategoryState).LoadAsync();
         }
 
-        public async Task DeleteCategory(Category entity)
+        public async Task DisableCategory(Category entity)
         {
-            this._database.Category.Remove(entity);
+            entity.CategoryStateId = 2;
+            this._database.Category.Update(entity);
             await this._database.SaveChangesAsync();
+            await this._database.Entry(entity).Reference(c => c.CategoryState).LoadAsync();
+        }
+
+        public async Task EnableCategory(Category entity)
+        {
+            entity.CategoryStateId = 1;
+            this._database.Category.Update(entity);
+            await this._database.SaveChangesAsync();
+            await this._database.Entry(entity).Reference(c => c.CategoryState).LoadAsync();
         }
     }
 }

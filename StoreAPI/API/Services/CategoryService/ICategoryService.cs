@@ -8,6 +8,7 @@ namespace API.Services
         Task<Category?> FindCategory(int id);
         Task InsertCategory(Category entity);
         Task UpdateCategory(Category entity);
-        Task DeleteCategory(Category entity);
+        Task DisableCategory(Category entity);
+        Task EnableCategory(Category entity);
     }
 }

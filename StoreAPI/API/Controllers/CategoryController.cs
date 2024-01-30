@@ -54,65 +54,88 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<APIResponse>> Insert(InsertUpdateDoctorDTO data)
+        public async Task<ActionResult<APIResponse>> InsertCategory(InsertUpdateCategoryDTO data)
         {
             APIResponse response = new();
-            response.Success = this._doctorValidator.ValidateInsertUpdate(null, data, response.Messages);
+            //response.Success = this._categoryService.ValidateInsertUpdate(null, data, response.Messages);
 
-            if (response.Success)
-            {
-                Doctor doctor = this._mapper.Map<InsertUpdateDoctorDTO, Doctor>(data);
-                await this._doctorService.InsertDoctor(doctor);
-                response.Data = this._mapper.Map<Doctor, GetDoctorDTO>(doctor);
-                response.Messages.Add("Doctor ha sido insertado");
-            }
+            //if (response.Success)
+            //{
+                Category category = this._mapper.Map<InsertUpdateCategoryDTO, Category>(data);
+                await this._categoryService.InsertCategory(category);
+                response.Data = this._mapper.Map<Category, GetCategoryDTO>(category);
+                response.Messages.Add("Categoría ha sido insertada");
+            //}
 
             return response;
         }
 
         [HttpPut]
         [Route("{id}")]
-        public async Task<ActionResult<APIResponse>> UpdateDoctor(int id, InsertUpdateDoctorDTO data)
+        public async Task<ActionResult<APIResponse>> UpdateCategory(int id, InsertUpdateCategoryDTO data)
         {
-            Doctor? doctor = await this._doctorService.FindDoctor(id);
-            if (doctor == null)
+            Category? category = await this._categoryService.FindCategory(id);
+            if (category == null)
             {
-                return HttpErrors.NotFound("Doctor no existe en el sistema");
+                return HttpErrors.NotFound("Categoría no existe en el sistema");
             }
 
             APIResponse response = new();
-            response.Success = this._doctorValidator.ValidateInsertUpdate(id, data, response.Messages);
+            //response.Success = this._doctorValidator.ValidateInsertUpdate(id, data, response.Messages);
 
-            if (response.Success)
-            {
-                this._mapper.Map(data, doctor);
-                await this._doctorService.UpdateDoctor(doctor);
-                response.Data = this._mapper.Map<Doctor, GetDoctorDTO>(doctor);
-                response.Messages.Add("Doctor ha sido actualizado");
-            }
+            //if (response.Success)
+            //{
+                this._mapper.Map(data, category);
+                await this._categoryService.UpdateCategory(category);
+                response.Data = this._mapper.Map<Category, GetCategoryDTO>(category);
+                response.Messages.Add("Categoría ha sido actualizado");
+            //}
 
             return response;
         }
 
-        [HttpDelete]
-        [Route("{id}")]
-        public async Task<ActionResult<APIResponse>> DeleteDoctor(int id)
+        [HttpPost]
+        [Route("{id}/disable")]
+        public async Task<ActionResult<APIResponse>> DisableCategory(int id)
         {
-            Doctor? doctor = await this._doctorService.FindDoctor(id);
-            if (doctor == null)
+            Category? category = await this._categoryService.FindCategory(id);
+            if (category == null)
             {
-                return HttpErrors.NotFound("Doctor no existe en el sistema");
+                return HttpErrors.NotFound("La categoría no existe en el sistema");
             }
 
             APIResponse response = new();
-            response.Success = this._doctorValidator.ValidateDelete(id, response.Messages);
+            //response.Success = this._doctorValidator.ValidateDelete(id, response.Messages);
 
-            if (response.Success)
+            //if (response.Success)
+            //{
+                await this._categoryService.DisableCategory(category);
+                response.Data = this._mapper.Map<Category, GetCategoryDTO>(category);
+                response.Messages.Add("Categoría ha sido desactivada");
+            //}
+
+            return response;
+        }
+
+        [HttpPost]
+        [Route("{id}/enable")]
+        public async Task<ActionResult<APIResponse>> EnableCategory(int id)
+        {
+            Category? category = await this._categoryService.FindCategory(id);
+            if (category == null)
             {
-                await this._doctorService.DeleteDoctor(doctor);
-                response.Data = this._mapper.Map<Doctor, GetDoctorDTO>(doctor);
-                response.Messages.Add("Doctor ha sido borrado");
+                return HttpErrors.NotFound("La categoría no existe en el sistema");
             }
+
+            APIResponse response = new();
+            //response.Success = this._doctorValidator.ValidateDelete(id, response.Messages);
+
+            //if (response.Success)
+            //{
+            await this._categoryService.EnableCategory(category);
+            response.Data = this._mapper.Map<Category, GetCategoryDTO>(category);
+            response.Messages.Add("Categoría ha sido activada");
+            //}
 
             return response;
         }

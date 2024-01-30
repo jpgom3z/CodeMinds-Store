@@ -1,6 +1,7 @@
 ﻿using API.Data.Models;
 using API.DataTransferObjects;
 using AutoMapper;
+using System.Numerics;
 
 namespace API.Mappers
 {
@@ -9,6 +10,7 @@ namespace API.Mappers
         public CategoryMapper() 
         {
             CreateMap<Category, GetCategoryDTO>();
+            CreateMap<InsertUpdateCategoryDTO, Category>();
         }
     }
 }
