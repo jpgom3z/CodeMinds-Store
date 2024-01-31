@@ -2,6 +2,7 @@ using API.Data;
 using API.Services;
 using API.Services.OrderService;
 using API.Validators;
+using API.Validators.OrderValidator;
 using API.Validators.ProductValidator;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,6 +22,7 @@ builder.Services.AddScoped<IOrderService, OrderService>();
 //VALIDATORS
 builder.Services.AddScoped<IProductValidator, ProductValidator>();
 builder.Services.AddScoped<ICategoryValidator, CategoryValidator>();
+builder.Services.AddScoped<IOrderValidator, OrderValidator>();
 
 var app = builder.Build();
 

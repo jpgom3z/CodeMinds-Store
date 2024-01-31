@@ -23,6 +23,12 @@ namespace API.Validators
             {
                 innerMessages.Add("El nombre de la categoría no puede contener más de 50 caracteres");
             }
+            //Missing UNIQUENESS validator for Category.Name
+
+            //else if (this._database.Category.Any(c => c.Name == data.Name && c.Id != id))
+            //{
+            //    innerMessages.Add("Cédula ya está registrada en el sistema");
+            //}
 
             // CategoryState validation
             if (!data.CategoryStateId.HasValue)

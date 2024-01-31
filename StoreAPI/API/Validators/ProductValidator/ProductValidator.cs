@@ -24,6 +24,13 @@ namespace API.Validators.ProductValidator
             {
                 innerMessages.Add("El nombre del producto no puede contener más de 50 caracteres");
             }
+            //Missing UNIQUENESS validator for Category.Name
+
+            //else if (this._database.Category.Any(c => c.Name == data.Name && c.Id != id))
+            //{
+            //    innerMessages.Add("Cédula ya está registrada en el sistema");
+            //}
+
             // Description validator
             if (string.IsNullOrWhiteSpace(data.Description))
             {

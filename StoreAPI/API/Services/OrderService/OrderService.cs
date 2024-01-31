@@ -12,12 +12,14 @@ namespace API.Services.OrderService
         {
             this._database = database;
         }
-        public IQueryable<Order> ListOrders(/*OrderListFilter? filter = null*/)
+        public IQueryable<Order> ListOrders(OrderListFilter? filter = null)
         {
-            //FILTER SHOULD BE ADDED HERE
-
+            filter ??= new OrderListFilter();
             return this._database
-                    .Order;
+                    .Order
+                    .Where(o => (!filter.DateFrom.HasValue || o.Date >= filter.DateFrom)
+                                && (!filter.TotalPriceFrom.HasValue || o.TotalPrice >= filter.TotalPriceFrom)
+                                && (!filter.TotalPriceTo.HasValue || o.TotalPrice <= filter.TotalPriceTo));
         }
         public async Task<Order?> FindOrder(int id)
         {
@@ -27,6 +29,10 @@ namespace API.Services.OrderService
                     .FirstOrDefaultAsync();
         }
 
-        //TASK CreateOrder SHOULD BE ADDED HERE
+        public async Task InsertOrder(Order entity)
+        {
+            this._database.Order.Add(entity);
+            await this._database.SaveChangesAsync();
+        }
     }
 }

@@ -10,6 +10,8 @@ namespace API.Mappers
         public OrderMapper() 
         {
             CreateMap<Order, GetOrderDTO>();
+            CreateMap<InsertOrderDTO, Order>();
+            CreateMap<FilterOrderDTO, OrderListFilter>();
         }
     }
 }
