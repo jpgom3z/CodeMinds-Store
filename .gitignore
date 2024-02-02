@@ -482,3 +482,14 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+#Visual Studio Update
+*.dtbcache.v2
+*.suo
+*.csproj.nuget
+*..project
+*.AssemblyInfo.cs
+*.AssemblyInfoInputs.cache
+*.vsidx
+*.editorconfig
+*.cache
