@@ -2,7 +2,6 @@
 using API.Data.Models;
 using API.DataTransferObjects;
 using API.Services;
-using API.Services.OrderService;
 using API.Validators.OrderValidator;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -34,6 +33,8 @@ namespace API.Controllers
 
             List<Order> list = await this._orderService.ListOrders(filter)
                                     .OrderBy(o => o.Date)
+                                    .ThenBy(o => o.CustomerDocumentId)
+                                    .ThenBy(o => o.CustomerName)
                                     .ThenBy(o => o.TotalPrice)
                                     .ToListAsync();
 

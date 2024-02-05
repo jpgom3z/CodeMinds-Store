@@ -32,7 +32,7 @@ namespace API.Services
             return await this._database
                     .Product
                     .Include(p => p.Category)
-                                    .ThenInclude(c => c.CategoryState)
+                    .ThenInclude(c => c.CategoryState)
                     .Include(p => p.ProductState)
                     .Where(p => p.Id == id)
                     .FirstOrDefaultAsync();

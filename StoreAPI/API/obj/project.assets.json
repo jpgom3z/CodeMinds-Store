@@ -4076,19 +4076,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\Antonio\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Dev\\CodeMinds-FullStackProject\\StoreAPI\\API\\API.csproj",
+      "projectUniqueName": "C:\\Users\\Antonio\\Documents\\CodeMinds-FullStackProject\\StoreAPI\\API\\API.csproj",
       "projectName": "API",
-      "projectPath": "C:\\Dev\\CodeMinds-FullStackProject\\StoreAPI\\API\\API.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "C:\\Dev\\CodeMinds-FullStackProject\\StoreAPI\\API\\obj\\",
+      "projectPath": "C:\\Users\\Antonio\\Documents\\CodeMinds-FullStackProject\\StoreAPI\\API\\API.csproj",
+      "packagesPath": "C:\\Users\\Antonio\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Antonio\\Documents\\CodeMinds-FullStackProject\\StoreAPI\\API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Antonio\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

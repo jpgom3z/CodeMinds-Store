@@ -1,7 +1,7 @@
 ﻿using API.Data.Filters;
 using API.Data.Models;
 
-namespace API.Services.OrderService
+namespace API.Services
 {
     public interface IOrderService
     {
