@@ -2,17 +2,16 @@
 using API.Data.Filters;
 using API.Data.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.InteropServices;
 
 namespace API.Services
 {
     public class OrderService : IOrderService
     {
         private readonly StoreDB _database;
-        private readonly IOrderProductService _orderProductService;
-        public OrderService(StoreDB database, IOrderProductService orderProductService)
+        public OrderService(StoreDB database)
         {
             this._database = database;
-            this._orderProductService = orderProductService;
         }
         public IQueryable<Order> ListOrders(OrderListFilter? filter = null)
         {
@@ -34,10 +33,12 @@ namespace API.Services
                     .FirstOrDefaultAsync();
         }
 
-        public async Task InsertOrder(Order entity)
+        public async Task InsertOrder(Order entity, OrderProduct orderProduct)
         {
             this._database.Order.Add(entity);
             await this._database.SaveChangesAsync();
+            this._database.OrderProduct.Add(orderProduct);
+            await this._database .SaveChangesAsync();
         }
     }
 }

@@ -7,6 +7,6 @@ namespace API.Services
     {
         IQueryable<Order> ListOrders(OrderListFilter? filter = null);
         Task<Order?> FindOrder(int id);
-        Task InsertOrder(Order entity);
+        Task InsertOrder(Order entity, OrderProduct orderProduct);
     }
 }
