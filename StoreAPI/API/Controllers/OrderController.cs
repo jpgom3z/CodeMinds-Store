@@ -2,7 +2,6 @@
 using API.Data.Models;
 using API.DataTransferObjects;
 using API.Services;
-using API.Services.OrderService;
 using API.Validators.OrderValidator;
 using AutoMapper;
 using Microsoft.AspNetCore.Http;
@@ -35,6 +34,8 @@ namespace API.Controllers
             List<Order> list = await this._orderService.ListOrders(filter)
                                     .OrderBy(o => o.Date)
                                     .ThenBy(o => o.TotalPrice)
+                                    .ThenBy(o => o.CustomerName)
+                                    .ThenBy(o=> o.CustomerDocumentId)
                                     .ToListAsync();
 
             APIResponse response = new APIResponse()
@@ -46,9 +47,9 @@ namespace API.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<ActionResult<APIResponse>> FindOrder(int id)
+        public async Task<ActionResult<APIResponse>> FindOrder(int id, string customerName, string customerDocumentId)
         {
-            Order? order = await this._orderService.FindOrder(id);
+            Order? order = await this._orderService.FindOrder(id, customerName, customerDocumentId);
             if (order == null)
             {
                 return HttpErrors.NotFound("Orden de compra no existe en el sistema");
@@ -63,14 +64,14 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<APIResponse>> InsertOrder(InsertOrderDTO data)
+        public async Task<ActionResult<APIResponse>> InsertOrder(InsertOrderDTO data, OrderProduct orderProduct)
         {
             APIResponse response = new();
             response.Success = this._orderValidator.ValidateInsert(data, response.Messages);
             if (response.Success)
             {
                 Order? order = this._mapper.Map<InsertOrderDTO, Order>(data);
-                await this._orderService.InsertOrder(order);
+                await this._orderService.InsertOrder(order, orderProduct);
                 response.Data = this._mapper.Map<Order, GetOrderDTO>(order);
                 response.Messages.Add("La orden de compra ha sido insertada");
             }
