@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@import './assets/css/theme-light.css';
+@import './assets/css/theme-dark.css';
+@import './assets/css/reset.css';
+
+html {
+    font-size: 10px;
+    height: 100%;
+ }
+
+body {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 1 rem;
+    background: var(--body-background);
+    color: var(--main-text-color);
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+h4 {
+    font-weight: bold;
+    font-size: 3rem;
+}

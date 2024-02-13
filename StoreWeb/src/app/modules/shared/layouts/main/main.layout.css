@@ -1,0 +1,41 @@
+header {
+    height: 8rem;
+    background: var(--top-bar-background);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+ul {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+button {
+    border: 0;
+    padding: 1rem;
+    font-size: 1.8rem;
+    border: 0.2rem;
+    background: none;
+    color: var(--main-text-color);
+    transition: backround-color 0.2s linear;
+}
+
+button:hover {
+    background: var(--main-hover-background);
+ }
+
+figure {
+    height: 100%;
+    padding: 1rem;
+ }
+ 
+ figure img {
+    height: 100%;
+    width: auto;
+ }
+
+ main {
+    padding: 2rem;
+ }
