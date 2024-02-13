@@ -11,7 +11,7 @@ namespace API.Validators
             _database = database;
         }
 
-        public bool ValidateInsertUpdate(InsertUpdateCategoryDTO data, List<string> messages)
+        public bool ValidateInsertUpdate(int? id, InsertUpdateCategoryDTO data, List<string> messages)
         {
             List<string> innerMessages = new();
             // Name validation
@@ -22,6 +22,10 @@ namespace API.Validators
             else if (data.Name.Length > 50)
             {
                 innerMessages.Add("El nombre de la categoría no puede contener más de 50 caracteres");
+            }
+            else if (this._database.Category.Any(c => c.Name == data.Name && c.Id != id))
+            {
+                innerMessages.Add("El nombre de la categoría ya existe en el sistema");
             }
             messages.AddRange(innerMessages);
             return !innerMessages.Any();
