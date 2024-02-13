@@ -11,7 +11,7 @@ namespace API.Validators.ProductValidator
             _database = database;
         }
 
-        public bool ValidateInsertUpdate(InsertUpdateProductDTO data, List<string> messages)
+        public bool ValidateInsertUpdate(int? id, InsertUpdateProductDTO data, List<string> messages)
         {
             List<string> innerMessages = new();
 
@@ -23,6 +23,10 @@ namespace API.Validators.ProductValidator
             else if (data.Name.Length > 50)
             {
                 innerMessages.Add("El nombre del producto no puede contener más de 50 caracteres");
+            }
+            else if (this._database.Product.Any(p =>  p.Name == data.Name && p.Id != id)) 
+            {
+                innerMessages.Add("El nombre del producto ya existe en el sistema");
             }
             //Missing UNIQUENESS validator for Category.Name
 
@@ -67,15 +71,7 @@ namespace API.Validators.ProductValidator
             {
                 innerMessages.Add("Debe seleccionar una categoría que esté registrada en el sistema");
             }
-            // ProductState validator
-            if (!data.ProductStateId.HasValue)
-            {
-                innerMessages.Add("Estado del producto es requerido");
-            }
-            else if (!_database.Product.Any(p => p.Id == data.ProductStateId))
-            {
-                innerMessages.Add("Debe seleccionar un estado del producto que esté registrado en el sistema");
-            }
+            // ProductState validator eliminado
             messages.AddRange(innerMessages);
             return !innerMessages.Any();
         }

@@ -23,16 +23,16 @@ namespace API.Validators.OrderValidator
             }
             else if (data.Date < DateTime.Now)
             {
-                innerMessages.Add("La fecha de la orden de compra no puede ser previa a hoy:");
+                innerMessages.Add("La fecha de la orden de compra no puede ser anterior a la fecha actual");
             }
             // CustomerName validator
             if (string.IsNullOrWhiteSpace(data.CustomerName))
             {
                 innerMessages.Add("El nombre del cliente es requerido");
             }
-            else if (data.CustomerName.Length > 255)
+            else if (data.CustomerName.Length > 50)
             {
-                innerMessages.Add("El nombre del cliente no puede contener más de 255 caracteres");
+                innerMessages.Add("El nombre del cliente no puede contener más de 50 caracteres");
             }
             // CustomerPhone validator
             if (string.IsNullOrWhiteSpace(data.CustomerPhone))
