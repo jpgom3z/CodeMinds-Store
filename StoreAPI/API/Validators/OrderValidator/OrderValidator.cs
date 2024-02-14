@@ -30,9 +30,9 @@ namespace API.Validators.OrderValidator
             {
                 innerMessages.Add("El nombre del cliente es requerido");
             }
-            else if (data.CustomerName.Length > 50)
+            else if (data.CustomerName.Length > 100)
             {
-                innerMessages.Add("El nombre del cliente no puede contener más de 50 caracteres");
+                innerMessages.Add("El nombre del cliente no puede contener más de 100 caracteres");
             }
             // CustomerPhone validator
             if (string.IsNullOrWhiteSpace(data.CustomerPhone))
