@@ -3,6 +3,7 @@ body.light {
     --color-body-background: #fcfcfc;
     --color-top-bar-background:  #f0f0f0; 
     --color-text: #292929;
+    --color-hover-background: rgba(90, 90, 90, 0.1);
     --color-scrollbar-dark: rgba(255, 255, 255, 0.1);
     --color-scrollbar-light: rgba(0, 0, 0, 0.1);
 }
