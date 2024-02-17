@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { LayoutService } from '@services/layout/layout.service';
 import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-main',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterOutlet, RouterModule],
   templateUrl: './main.layout.html',
   styleUrl: './main.layout.css'
 })

@@ -24,6 +24,9 @@
     ],
     "baseUrl": "./",
     "paths": {
+      "@products/*": ["src/app/modules/products/*"],
+      "@orders/*": ["src/app/modules/orders/*"],
+      "@categories/*": ["src/app/modules/category/*"],
       "@services/*": ["src/app/services/*"],
       "@shared/*": ["src/app/module/shared/*"]
     }

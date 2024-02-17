@@ -5,10 +5,13 @@
     <nav>
         <ul>
             <li>
-                <a>Link</a>
+                <a routerLink="/">Products</a>
             </li>
             <li>
-                <a>link2</a>
+                <a routerLink="/orders">Orders</a>
+            </li>
+            <li>
+                <a routerLink="/categories">Category Settings</a>
             </li>
             <li>
                 <button type="button" class="material-symbols-sharp" (click)="changeTheme()">{{themes[theme]}}_mode</button>
@@ -16,3 +19,6 @@
         </ul>
     </nav>
 </header>
+<main>
+    <router-outlet></router-outlet>
+</main>
