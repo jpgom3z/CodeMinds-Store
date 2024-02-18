@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { LayoutService } from './services/layout/layout.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ import { LayoutService } from './services/layout/layout.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
+
   constructor (
     private layoutService: LayoutService
   ){}
@@ -20,5 +22,4 @@ export class AppComponent implements OnInit {
       document.body.className = theme;
     })
   }
-  title = 'store-admi';
 }
