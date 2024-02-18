@@ -1,8 +1,0 @@
-body.dark {
-    /* LAYOUT */
-    --color-top-bar-background:  #303030;
-    --color-body-background: #242424;
-    --color-text: #fff;
-    --color-scrollbar-dark: rgba(255, 255, 255, 0.1);
-    --color-scrollbar-light: rgba(255, 255, 255, 0.1);
-}
