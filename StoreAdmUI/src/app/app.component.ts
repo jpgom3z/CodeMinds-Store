@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { LayoutService } from './services/layout/layout.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -20,5 +21,4 @@ export class AppComponent implements OnInit {
       document.body.className = theme;
     })
   }
-  title = 'store-admi';
 }

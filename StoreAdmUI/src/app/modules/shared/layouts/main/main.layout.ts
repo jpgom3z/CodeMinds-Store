@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { LayoutService } from '@services/layout/layout.service';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-main',
