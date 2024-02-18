@@ -18,7 +18,7 @@ export class MainLayout implements OnInit, OnDestroy {
 
   private subscriptions: Subscription;
 
-  constructor (
+  public constructor (
     private layoutService: LayoutService
   ){
     this.theme = null;
