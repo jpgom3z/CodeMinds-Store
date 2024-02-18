@@ -5,4 +5,5 @@ body.light {
     --main-text-color: #000;
     --main-hover-background: rgba(90, 90, 90, 0.1);
     --color-scrollbar-light: rgba(0, 0, 0, 0.1);
+    --field-background: #ecebeb;
 }

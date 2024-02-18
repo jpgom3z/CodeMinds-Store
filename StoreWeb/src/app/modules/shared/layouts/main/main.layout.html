@@ -2,25 +2,27 @@
     <figure>
         <img src="/assets/img/u-store.png" alt="U Store Logo">
     </figure>
-    <div>
-        <select name="categories" id="categories">
+    <div class="search-box">
+        <select class="search-category-filter" name="categories" id="categories">
             <option value="Category1">Category1</option>
             <option value="Category2">Category2</option>
             <option value="Category3">Category3</option>
             <option value="Category4">Category4</option>
         </select>
-        <input type="text" placeholder="Search...">
-        <button type="button">SEARCH</button>
-        
+        <input type="text" class="search-bar" placeholder="Search...">
+        <button type="button" class="material-icons-sharp search-button">search</button>
     </div>
     <nav>
         <ul>
             <li>
-                <button class="material-icons-sharp" type="button">CART</button>
+                <button class="material-icons-sharp" type="button">shopping_cart</button>
             </li>
             <li>
-                <button class="material-icons-sharp" type="button">LIGHT</button>
+                <button class="material-icons-sharp" type="button" (click)="changeTheme()">{{themes[theme]}}_mode</button>
             </li>
         </ul>
     </nav>
 </header>
+<main>
+    <router-outlet></router-outlet>
+</main>
