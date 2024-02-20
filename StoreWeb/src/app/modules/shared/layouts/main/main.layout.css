@@ -23,7 +23,7 @@ button {
     font-size: 1.8rem;
     border: 0.2rem;
     background: none;
-    /* color: var(--main-text-color); */
+    color: var(--main-text-color);
     transition: backround-color 0.2s linear;
 } 
 

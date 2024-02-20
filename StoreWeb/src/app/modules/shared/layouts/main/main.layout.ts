@@ -25,21 +25,17 @@ export class MainLayout implements OnInit, OnDestroy {
   }
 
 
-  public  ngOnInit(): void {
+  public ngOnInit(): void {
     this.subscriptions.add(this.layoutService.themeSubject.subscribe((theme) => {
       this.theme = theme;
     }))
   }
 
   public ngOnDestroy(): void {
-    /* Al destruir el componente mandamos a llamar la cancelación del objeto de suscripción
-    lo que causa que todas las suscripciones agregadas se desuscriban */
     this.subscriptions.unsubscribe();
   }
 
   public changeTheme(): void {
-    /* Con esta función mandamos a cambiar el valor del BehaviorSubject de tema activo
-    el cual notificará a todos sus suscriptores del nuevo cambio */
     this.layoutService.themeSubject.next(this.themes[this.theme]);
   }
 

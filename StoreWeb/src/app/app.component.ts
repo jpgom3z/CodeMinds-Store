@@ -4,7 +4,7 @@ import { LayoutService } from './services/layout/layout.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   constructor(
@@ -12,9 +12,11 @@ export class AppComponent implements OnInit {
   ){}
 
 
-  public  ngOnInit(): void {
+  public ngOnInit(): void {
     this.layoutService.themeSubject.subscribe((theme) => {
-      document.body.className = theme;
+      if (typeof document !== 'undefined') {
+        document.body.className = theme;
+      }
     });
   }
 }
