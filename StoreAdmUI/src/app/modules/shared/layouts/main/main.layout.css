@@ -16,10 +16,15 @@ figure img {
     width: auto;
 }
 
+li {
+    list-style: none;
+}
 ul {
     display: flex;
     align-items: center;
     gap: 1rem;
+    list-style: none;
+    text-decoration: none;
 }
 
 a {
@@ -30,6 +35,7 @@ a {
     padding: 1rem;
     border-radius: 0.2rem;
     transition: background-color 0.2s linear;
+    list-style: none;
 }
 
 button {
@@ -138,6 +144,10 @@ a:hover, a.active {
     font-size: 1rem;
     margin-right: 0.5rem;
     vertical-align: middle;
+}
+
+.sidenav .menu .a {
+    text-decoration: none;
 }
 
 .sidenav .menu a span {

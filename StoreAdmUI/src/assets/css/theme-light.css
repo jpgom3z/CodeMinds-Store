@@ -6,4 +6,15 @@ body.light {
     --color-hover-background: rgba(90, 90, 90, 0.1);
     --color-scrollbar-dark: rgba(255, 255, 255, 0.1);
     --color-scrollbar-light: rgba(0, 0, 0, 0.1);
+    --color-navbar: rgba(122, 34, 46, 0.664);
+    --color-navbar-menu-hover: rgba(173, 36, 54, 0.575);
+    --color-top-bar-background: rgba(170, 98, 108, 0.705);
+    --color-hover-background: rgba(226, 106, 122, 0.445); 
+    --color-shadow-dark: rgba(102, 24, 34, 0.664);
+    --color-sidenav: rgba(86, 28, 134, 0.712);
+    --color-sidenav-text: rgba(20, 4, 34, 0.815);
+    --color-shadow-dark: rgba(67, 27, 99, 0.685);
+    --color-sidenav-category: rgba(198, 163, 226, 0.767);
+    --color-sidenav-active: rgba(86, 28, 134, 0.685);
+    --color-main: rgba(158, 180, 158, 0.712);
 }

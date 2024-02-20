@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { MainLayout } from '@shared/layouts/main/main.layout';
 
 @Component({
   selector: 'app-products',
   standalone: true,
-  imports: [],
+  imports: [MainLayout],
   templateUrl: './products.page.html',
-  styleUrl: './products.page.css'
+  styleUrl: '../../../shared/layouts/main/main.layout.css',
 })
 export class ProductsPage {
 

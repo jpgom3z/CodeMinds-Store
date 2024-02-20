@@ -1,6 +1,8 @@
 @import './assets/css/theme-light.css';
 @import './assets/css/theme-dark.css';
 @import './assets/css/reset.css';
+@import './assets/css/button.css';
+@import './assets/css/columns.css';
 
 html {
     font-size: 10px;
