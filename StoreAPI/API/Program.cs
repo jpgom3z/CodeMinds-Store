@@ -1,6 +1,5 @@
 using API.Data;
 using API.Services;
-using API.Services.OrderService;
 using API.Validators;
 using API.Validators.OrderValidator;
 using API.Validators.ProductValidator;

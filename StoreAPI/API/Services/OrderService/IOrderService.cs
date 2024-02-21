@@ -8,4 +8,3 @@ namespace API.Services;
         Task<Order?> FindOrder(int id, string customerName, string customerDocumentId);
         Task InsertOrder(Order entity, OrderProduct orderProduct);
     }
-}
