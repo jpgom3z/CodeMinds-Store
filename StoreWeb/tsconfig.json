@@ -24,7 +24,9 @@
       "dom"
     ],
     "paths": {
-      "@products/*": ["src/app/modules/products/products/*"]
+      "@products/*": ["src/app/modules/products/*"],
+      "@shared/*":["src/app/modules/shared/*"],
+      "@services/*": ["src/app/services/*"]
     }
   },
   "angularCompilerOptions": {

@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { LayoutService } from '../../../../services/layout/layout.service';
+import { LayoutService } from '@services/layout/layout.service';
 
 @Component({
   selector: 'app-main',

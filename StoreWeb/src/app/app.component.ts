@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LayoutService } from './services/layout/layout.service';
+import { LayoutService } from '@services/layout/layout.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,6 @@ export class AppComponent implements OnInit {
   constructor(
     private layoutService: LayoutService
   ){}
-
 
   public ngOnInit(): void {
     this.layoutService.themeSubject.subscribe((theme) => {
