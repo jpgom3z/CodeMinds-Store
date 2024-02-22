@@ -1,0 +1,22 @@
+<div>
+    <table>
+        <thead *ngIf="filteredHeaders.length > 0">
+            <tr>
+                <th *ngFor="let header of filteredHeaders" [attr.style]="getHeaderWidth(header.size)">{{header.label}}</th>
+            </tr>
+        </thead>
+        <tbody #items>
+            <tr *ngFor="let row of source">
+                <ng-container *ngTemplateOutlet="template; context: {$implicit: row}"></ng-container>
+            </tr>
+            <tr *ngIf="!loading && (!source || source.length == 0)" class="no-results">
+                <td [attr.colspan]="filteredHeaders.length">{{noResultsText}}</td>
+            </tr>
+            <tr *ngIf="loading" class="loading">
+                <td [attr.colspan]="filteredHeaders.length">
+                    <i class="material-symbols-sharp">loop</i>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

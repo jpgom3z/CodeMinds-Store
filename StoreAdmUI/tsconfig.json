@@ -29,7 +29,9 @@
       "@categories/*": ["src/app/modules/category/*"],
       "@services/*": ["src/app/services/*"],
       "@shared/*": ["src/app/modules/shared/*"],
-      "@style/*": ["src/app/modules/shared/*"]
+      "@style/*": ["src/app/modules/shared/*"],
+      "@utils/*": ["src/app/utils/*"],
+      "@store/*": ["src/app/app.store.ts"]
     }
   },
   "angularCompilerOptions": {
