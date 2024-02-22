@@ -27,6 +27,10 @@ ul {
     text-decoration: none;
 }
 
+.sidenav ul {
+    display: inline-block;
+}
+
 a {
     text-decoration: none;
     font-size: 1.5rem;
@@ -136,14 +140,6 @@ a:hover, a.active {
     text-decoration: none;
     display: block;
     padding: 1.2rem;
-}
-
-.sidenav .menu a::before {
-    /* Caracter: ◆ */
-    content: '\25C6';
-    font-size: 1rem;
-    margin-right: 0.5rem;
-    vertical-align: middle;
 }
 
 .sidenav .menu .a {
