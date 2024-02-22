@@ -3,6 +3,6 @@ namespace API.Validators.OrderValidator
 {
     public interface IOrderValidator
     {
-        bool ValidateInsert(InsertOrderDTO data, List<string> messges);
+        bool ValidateInsert(OrderRequest data, List<string> messges);
     }
 }

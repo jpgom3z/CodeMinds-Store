@@ -33,9 +33,6 @@ namespace API.Controllers
 
             List<Order> list = await this._orderService.ListOrders(filter)
                                     .OrderBy(o => o.Date)
-                                    .ThenBy(o => o.TotalPrice)
-                                    .ThenBy(o => o.CustomerName)
-                                    .ThenBy(o=> o.CustomerDocumentId)
                                     .ToListAsync();
 
             APIResponse response = new APIResponse()
@@ -47,9 +44,9 @@ namespace API.Controllers
 
         [HttpGet]
         [Route("{id}")]
-        public async Task<ActionResult<APIResponse>> FindOrder(int id, string customerName, string customerDocumentId)
+        public async Task<ActionResult<APIResponse>> FindOrder(int id)
         {
-            Order? order = await this._orderService.FindOrder(id, customerName, customerDocumentId);
+            Order? order = await this._orderService.FindOrder(id);
             if (order == null)
             {
                 return HttpErrors.NotFound("Orden de compra no existe en el sistema");
@@ -64,16 +61,17 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<APIResponse>> InsertOrder(InsertOrderDTO data, OrderProduct orderProduct)
+        public async Task<ActionResult<APIResponse>> InsertPurchaseInsertPurchaseProduct(OrderRequest request)
         {
             APIResponse response = new();
-            response.Success = this._orderValidator.ValidateInsert(data, response.Messages);
+            response.Success = this._orderValidator.ValidateInsert(request, response.Messages);
             if (response.Success)
             {
-                Order? order = this._mapper.Map<InsertOrderDTO, Order>(data);
-                await this._orderService.InsertOrder(order, orderProduct);
-                response.Data = this._mapper.Map<Order, GetOrderDTO>(order);
-                response.Messages.Add("La orden de compra ha sido insertada");
+                Order? order = this._mapper.Map<InsertOrderDTO, Order>(request.OrderData);
+                List<OrderProduct> orderProductList = this._mapper.Map<List<InsertOrderProductDTO>, List<OrderProduct>>(request.OrderProductData);
+                await this._orderService.InsertOrderProducts(order, orderProductList);
+                response.Data = "Estamos trabajando en esto...";
+                response.Messages.Add("La compra ha sido insertada");
             }
             return response;
         }

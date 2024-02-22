@@ -19,7 +19,12 @@ namespace API.DataTransferObjects
             public string CustomerAddress { get; set; } = null!;
 
             public decimal TotalPrice { get; set; }
-            public OrderProduct OrderProduct { get; set; } = null!; /* ¿ES NECESARIO YA QUE ES UN GET? */
+        }
+
+        public class OrderRequest
+        {
+            public InsertOrderDTO? OrderData { get; set; }
+            public List<InsertOrderProductDTO>? OrderProductData { get; set; }
         }
 
     public class InsertOrderDTO
@@ -37,13 +42,19 @@ namespace API.DataTransferObjects
         public string CustomerAddress { get; set; } = null!;
 
         public decimal? TotalPrice { get; set; }
-        public OrderProduct? OrderProduct { get; set; } = null!; /* ¿ES NECESARIO POR SER UN INSERT? */
+    }
+    public class InsertOrderProductDTO
+    {
+        public int? Quantity { get; set; }
+        public decimal? TotalPrice { get; set; }
+        public int? OrderId { get; set; }
+        public int? ProductId { get; set; }
     }
 
     public class FilterOrderDTO
     {
         public DateTime? DateFrom { get; set; }
-        public DateTime? DateTo { get; set; }  /*SEGÚN RESPUESTA DEL CLIENTE VICTOR */
+        public DateTime? DateTo { get; set; }
         public string? CustomerName { get; set; }
         public string? CustomerDocumentId { get; set; }
         public decimal? TotalPriceFrom { get; set; }

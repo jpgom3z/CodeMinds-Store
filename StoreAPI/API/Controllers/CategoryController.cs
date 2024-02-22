@@ -60,7 +60,7 @@ namespace API.Controllers
         public async Task<ActionResult<APIResponse>> InsertCategory(InsertUpdateCategoryDTO data)
         {
             APIResponse response = new();
-            response.Success = this._categoryValidator.ValidateInsertUpdate( data, response.Messages);
+            response.Success = this._categoryValidator.ValidateInsertUpdate(null, data, response.Messages);
 
             if (response.Success)
             {
@@ -84,7 +84,7 @@ namespace API.Controllers
             }
 
             APIResponse response = new();
-            response.Success = this._categoryValidator.ValidateInsertUpdate( data, response.Messages);
+            response.Success = this._categoryValidator.ValidateInsertUpdate(null, data, response.Messages);
 
             if (response.Success)
             {
