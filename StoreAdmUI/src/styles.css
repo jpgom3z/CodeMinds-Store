@@ -1,0 +1,43 @@
+@import './assets/css/theme-light.css';
+@import './assets/css/theme-dark.css';
+@import './assets/css/reset.css';
+@import './assets/css/button.css';
+@import './assets/css/columns.css';
+
+html {
+    font-size: 10px;
+    height: 100%;
+}
+
+body {
+    font-family: "Roboto", Helvetica, sans-serif;
+    font-size: 1.4rem;
+    background: var(--color-body-background);
+    color: var(--color-text);
+}
+
+h1 {
+    font-weight: 700;
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+h4 {
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+}
+
+.material-symbols-sharp {
+    font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24
+  }
+
+@media screen and (max-width: 768px) {
+    .page-controls {
+        width: 15rem;
+    }
+}

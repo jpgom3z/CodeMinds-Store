@@ -1,0 +1,125 @@
+header {
+    height: 8rem;
+    background: var(--top-bar-background);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+main {
+    padding: 2rem;
+ }
+
+ul {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+button {
+    border: 0;
+    padding: 1rem;
+    font-size: 1.8rem;
+    border: 0.2rem;
+    background: none;
+    color: var(--main-text-color);
+    transition: backround-color 0.2s linear;
+} 
+
+ button:hover {
+    background: var(--main-hover-background);
+ }
+
+figure {
+    height: 100%;
+    padding: 1rem;
+ }
+ 
+ figure img {
+    height: 100%;
+    width: auto;
+ }
+
+ .search-box {
+    display: flex;
+    align-items: center;
+    width: 50%;
+  }
+
+  .search-category-filter {
+    padding: 0.8rem;
+    border: 1px solid #9c27b0 ;
+    border-radius: 0.5rem;
+    margin-right: 0.5rem;
+    background: var(--field-background);
+}
+  
+  .search-bar {
+    flex-grow: 1; 
+    border: 1px solid #9c27b0;
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    margin-right: 0.5rem;
+    outline: none;
+    background: var(--field-background);
+  }
+  
+  .search-bar:focus{
+    color: var(--main-text-color);
+  }
+  
+  .search-button {
+    display: flex;
+    align-items: center;
+    width: 4rem;
+    height: 3.6rem;
+    border: 1px solid #ffcc00;
+    background: #ffcc00;
+    text-align: center;
+    color: 9c27b0;
+    border-radius: 1.8rem;
+    cursor: pointer;
+    font-size: 2rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-category-filter:hover {
+    background-color: var(--main-hover-background);
+}
+
+.search-button:hover{
+     background: #f0c417;
+  }
+  
+
+  @media only screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .search-box {
+        width: 100%; 
+        margin-top: 1rem; 
+    }
+
+    .search-category-filter{
+        width: 10rem;
+    }
+
+    .search-button{
+        width: 4rem;
+    }
+
+    .search-bar{
+        width: auto;
+    }
+
+    nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: 1000;
+    }
+}

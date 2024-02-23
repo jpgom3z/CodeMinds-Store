@@ -4,6 +4,6 @@ namespace API.Validators
 {
     public interface ICategoryValidator
     {
-        bool ValidateInsertUpdate(InsertUpdateCategoryDTO data, List<string> messges);
+        bool ValidateInsertUpdate(int? id, InsertUpdateCategoryDTO data, List<string> messages);
     }
 }

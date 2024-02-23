@@ -1,0 +1,24 @@
+<header class="">
+    <figure>
+        <img src="/assets/img/StoreLogo.png" alt="Store Administration Logo">
+    </figure>
+    <nav>
+        <ul>
+            <li>
+                <a routerLink="/">Products</a>
+            </li>
+            <li>
+                <a routerLink="/orders">Orders</a>
+            </li>
+            <li>
+                <a routerLink="/categories">Category Settings</a>
+            </li>
+            <li>
+                <button type="button" class="material-symbols-sharp" (click)="changeTheme()">{{themes[theme]}}_mode</button>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="page wrapper">
+    <router-outlet></router-outlet>
+</main>

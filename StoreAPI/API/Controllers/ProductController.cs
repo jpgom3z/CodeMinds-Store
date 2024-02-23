@@ -61,7 +61,7 @@ namespace API.Controllers
         public async Task<ActionResult<APIResponse>> InsertProduct(InsertUpdateProductDTO data)
         {
             APIResponse response = new();
-            response.Success = this._productValidator.ValidateInsertUpdate(data, response.Messages);
+            response.Success = this._productValidator.ValidateInsertUpdate(null, data, response.Messages);
             if (response.Success)
             {
                 Product? product = this._mapper.Map<InsertUpdateProductDTO, Product>(data);
@@ -79,7 +79,7 @@ namespace API.Controllers
             Product? product = await this._productService.FindProduct(id);
             if (product == null) { return HttpErrors.NotFound("Producto no existe en el sistema"); }
             APIResponse response = new();
-            response.Success = this._productValidator.ValidateInsertUpdate(data, response.Messages);
+            response.Success = this._productValidator.ValidateInsertUpdate(null, data, response.Messages);
             if (response.Success)
             {
                 this._mapper.Map(data, product);
