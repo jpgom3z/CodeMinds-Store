@@ -1,0 +1,135 @@
+.form-field {
+    padding: 0.7rem;
+}
+
+::placeholder {
+    color: var(--color-placeholder);
+    font-size: inherit;
+}
+
+.form-field>label {
+    display: inline-block;
+    font-weight: 700;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    font-size: inherit;
+}
+
+input:not([type="radio"]):not([type="checkbox"]),
+textarea,
+select {
+    display: inline-block;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: inherit;
+    background: rgba(255, 255, 255, 0.2);
+    color: inherit;
+    border: solid 0.1rem var(--color-form-field-border);
+    border-radius: 0.2rem;
+    outline: 0;
+}
+
+input:not([type="radio"]):not([type="checkbox"]):focus,
+textarea:focus,
+select:focus {
+    border-color: var(--color-form-field-focus);
+}
+
+textarea {
+    min-height: 15rem;
+    resize: none;
+}
+
+textarea.resizable {
+    resize: vertical;
+}
+
+.check-container:not(.inline):not(:last-child) {
+    margin-bottom: 0.4rem;
+}
+
+.check-container.inline {
+    display: inline-block;
+    margin-right: 1.2rem;
+}
+
+.check {
+    display: inline-block;
+}
+
+.check span {
+    vertical-align: text-bottom;
+}
+
+.check i {
+    display: inline-block;
+    width: 1.8rem;
+    height: 1.8rem;
+    border: solid 0.1rem #ccc;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 0.2rem;
+    margin-right: 0.4rem;
+    vertical-align: middle;
+}
+
+.check :checked+i {
+    background-color: var(--color-main);
+}
+
+.check input {
+    display: none;
+}
+
+.options {
+    position: absolute;
+    display: none;
+}
+
+.options.open {
+    display: block;
+}
+
+.options ul {
+    position: absolute;
+    z-index: 10;
+    margin-top: 0.1rem;
+    background: var(--color-background);
+    overflow: auto;
+}
+
+.options li {
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background: rgba(255, 255, 255, 0.2);
+    color: inherit;
+    min-width: 17rem;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+}
+
+.options li.selected,
+.options li:hover {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.options h5 {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.options h5.title {
+    margin-bottom: 0.6rem;
+    border-bottom: solid 0.1rem var(--color-form-field-input);
+}
+
+@media screen and (max-width: 1024px) {
+    .check-container.inline {
+        display: block;
+    }
+
+    .check-container:not(:last-child) {
+        margin-bottom: 0.4rem;
+    }
+}

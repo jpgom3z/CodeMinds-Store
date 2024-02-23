@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,5 +10,6 @@ export class LayoutService {
 
   constructor() {
     this.theme$ = new BehaviorSubject('light');
-   }
+  }
+
 }

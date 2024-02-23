@@ -1,0 +1,125 @@
+div {
+    position: relative;
+    max-height: 45rem;
+    overflow: auto;
+}
+
+div>i {
+    position: absolute;
+    right: 0.4rem;
+    top: 0.4rem;
+}
+
+i {
+    font-size: 2.1rem;
+    animation: rotate 1s ease-out infinite;
+}
+
+table {
+    width: 100%;
+    min-width: 70rem;
+    table-layout: fixed;
+}
+
+thead {
+    position: sticky;
+    top: 0;
+    background: var(--color-background);
+}
+
+th {
+    text-align: left;
+    font-weight: 700;
+    padding: 0.8rem 0.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+th:last-child {
+    padding-right: 2.5rem;
+}
+
+tbody tr:nth-child(odd) {
+    background: var(--color-alternate-item-background);
+}
+
+tr.no-results td,
+tr.loading td {
+    text-align: center;
+}
+
+::ng-deep td {
+    padding: 0.5rem;
+    vertical-align: middle;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+::ng-deep td label {
+    display: none;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+}
+
+::ng-deep td.buttons {
+    text-align: right;
+}
+
+@media screen and (max-width: 768px) {
+    div {
+        max-height: none;
+    }
+
+    div>i {
+        display: none;
+    }
+
+    table {
+        min-width: 0;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        position: relative;
+        display: block;
+        padding: 1rem;
+    }
+
+    ::ng-deep td {
+        display: block;
+    }
+    
+    ::ng-deep td.heading {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+    }
+
+    ::ng-deep td label {
+        display: block;
+    }
+
+    ::ng-deep td.buttons {
+        text-align: left;
+        margin-top: 1.8rem;
+    }
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotateZ(10deg);
+    }
+
+    80% {
+        transform: rotateZ(340deg);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}

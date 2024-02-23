@@ -1,17 +1,14 @@
 <section>
     <nav class="sidenav dark-scroll">
-        <h3 class="category">Men&uacute;  de Productos</h3>
+        <h3 class="category">Products</h3>
         <ul class="menu">
             <li routerActiveLink>
-                <a routerLink="/">Ingresar Nuevo Producto</a>
-            </li>
-            <li routerActiveLink>
-                <a routerLink="/">Buscar un Producto</a>
-            </li>
-            <li>
-                <a routerLink="/">Lista de Productos</a>
+                <a routerLink="/">Insert New Product</a>
             </li>
         </ul>
     </nav>
 </section>
 <p>products works!</p>
+<article *ngFor="let product of products">
+    <p>{{products}}</p>
+</article>
