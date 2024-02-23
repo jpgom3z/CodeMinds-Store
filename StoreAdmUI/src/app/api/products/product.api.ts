@@ -18,18 +18,18 @@ export class ProductApi {
   }
 
   public list(filter: FilterProductDTO): Observable<APIResponse<Product[]>> {
-    return this.httpService.get(this._api, { params: filter }).mapArrayResponse((item: object) => new Product(item));
+    return this.httpService.get(this._api, { params: filter })//.mapArrayResponse((item: object) => new Product(item));
   }
 
   public insert(data: Product): Observable<APIResponse<Product>> {
-    return this.httpService.post(this._api, new InsertUpdateProductDTO(data)).mapObjectResponse((item: object) => new Product(item));
+    return this.httpService.post(this._api, new InsertUpdateProductDTO(data))//.mapObjectResponse((item: object) => new Product(item));
   }
 
   public update(data: Product): Observable<APIResponse<Product>> {
-    return this.httpService.put(`${this._api}/${data.id}`, new InsertUpdateProductDTO(data)).mapObjectResponse((item: object) => new Product(item));;
+    return this.httpService.put(`${this._api}/${data.id}`, new InsertUpdateProductDTO(data))//.mapObjectResponse((item: object) => new Product(item));;
   }
 
   public delete(id: number): Observable<APIResponse<Product>> {
-    return this.httpService.delete(`${this._api}/${id}`).mapObjectResponse((item: object) => new Product(item));;
+    return this.httpService.delete(`${this._api}/${id}`)//.mapObjectResponse((item: object) => new Product(item));;
   }
 }
