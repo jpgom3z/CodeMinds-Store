@@ -34,17 +34,17 @@ namespace API.Services;
 
         public async Task InsertOrderProducts(Order OrderEntity, List<OrderProduct> OrderProductEntities)
         {
-        // Insertamos un elemento Purchase a la DB
+        // Insertamos un elemento Order a la DB
         this._database.Order.Add(OrderEntity);
         await this._database.SaveChangesAsync();
 
-        // Obtenemos el ID del elemento Purchase insertado
+        // Obtenemos el ID del elemento Order insertado
         int newOrderId = OrderEntity.Id;
 
-        //// Insertamos en la DB un elemento PurchaseProduct por cada objeto que traiga la lista 
+        //// Insertamos en la DB un elemento OrderProduct por cada objeto que traiga la lista 
         foreach (var orderProductEntity in OrderProductEntities)
         {
-            // Asignamos el ID del elemento Purchase como valor de PurchaseProduct.PurchaseId
+            // Asignamos el ID del elemento Order como valor de OrderProduct.OrderId
             orderProductEntity.OrderId = newOrderId;
             this._database.OrderProduct.Add(orderProductEntity);
         }
