@@ -10,6 +10,7 @@ export class LayoutService {
 
   constructor() {
     this.theme$ = new BehaviorSubject('light');
+    console.log('constructor layservice');
   }
 
 }

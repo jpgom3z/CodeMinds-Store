@@ -158,6 +158,12 @@ main {
     padding: 2rem;
 }
 
+article {
+    margin: 2rem;;
+    font-size: 3rem;
+    padding: 2rem;
+}
+
 @media screen and (max-width: 1024px) {
 
     /* Recalculamos en pantallas móviles ya que cambian los elementos

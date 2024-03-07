@@ -10,6 +10,5 @@
 </section>
 <p>products works!</p>
 <article *ngFor="let product of products">
-    <p>{{product.name}}</p>
-    <p>{{product.description}}</p>
+    <p>{{product | json}}</p>
 </article>

@@ -3,7 +3,6 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { LayoutService } from '@services/layout/layout.service';
 import { Observable, Subscription } from 'rxjs';
-import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-main',
@@ -24,11 +23,12 @@ export class MainLayout implements OnInit, OnDestroy {
       light: 'dark',
       dark: 'light'
     };
-
+    console.log('constructor main');
     this.subscriptions = new Subscription();
   }
 
   public ngOnInit(): void {
+    console.log('On Init Layout')
     this.subscriptions.add(this.layoutService.theme$.subscribe((theme) => {
       this.theme = theme;
     }));

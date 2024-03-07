@@ -1,8 +1,9 @@
-import { CommonModule } from '@angular/common';
-import { APP_INITIALIZER, Component, Input, OnInit } from '@angular/core';
-import { MainLayout } from '@shared/layouts/main/main.layout';
+import { Component, Input, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { ProductService } from '@services/product/product.service';
+import { Router } from '@angular/router';
+import { Observable, bindCallback } from 'rxjs';
+import { JsonPipe } from '@angular/common';
 
 
 @Component({
@@ -12,17 +13,28 @@ import { ProductService } from '@services/product/product.service';
 })
 export class ProductsPage implements OnInit{
   public products: Product[];
+  public noData: any;
+  public response: Response;
+  public results: any = [];
 
   constructor(
-    private productService: ProductService
+    private productService: ProductService,
+    private router: Router,
     ){
-    this.products = [];
+      console.log('constructor ppage');
+    }
 
-  }
   public ngOnInit(): void {
-    this.productService.list().subscribe((data) => {
-      this.products = data;
-      console.log(data);
+    console.log('On Init ProductPage')
+    this.productService.list().subscribe((results) => {
+      this.results = results;
+      this.products = this.results.data;
+      console.log(JSON.stringify(this.results));
+      console.log('JSON Response =', JSON.stringify(results));
     });
+  }
+
+  public goToProduct(id: number): void {
+    this.router.navigate(['product', id]);
   }
 }
