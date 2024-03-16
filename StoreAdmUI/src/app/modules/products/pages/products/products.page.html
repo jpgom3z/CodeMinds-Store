@@ -1,5 +1,5 @@
 <section>
-    <nav class="sidenav dark-scroll">
+    <nav ngClass="sidenav dark-scroll">
         <h3 class="category">Products</h3>
         <ul class="menu">
             <li routerActiveLink>
@@ -8,8 +8,24 @@
         </ul>
     </nav>
 </section>
-<p>products works!</p>
-<article *ngFor="let product of products">
-    <p>{{product.name}}</p>
-    <p>{{product.description}}</p>
-</article>
+<div class="results">
+<ng-container class="row">
+    <table>
+        <th>NOMBRE</th>
+        <th>DESCRIPCIÓN</th>
+        <th>PRECIO</th>
+        <th>DISPONIBLE</th>
+        <th>CATEGORÍA</th>
+        <th>ESTADO DE PRODUCTO</th>
+        <tr *ngFor="let product of products; let i = index">
+            <td>{{product.name}}</td>
+            <td>{{product.description}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.stock}}</td>
+            <td>{{product.categoryId}}</td>
+            <td>{{product.productStateId}}</td>
+        </tr>
+    </table>
+</ng-container>
+</div>
+

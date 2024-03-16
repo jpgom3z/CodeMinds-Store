@@ -1,7 +1,7 @@
 import { Category } from "./category";
 import { ProductState } from "./productState";
 
-export interface Product {
+export interface Product extends Array<Product> {
     id: number;
     name: string;
     description: string;
