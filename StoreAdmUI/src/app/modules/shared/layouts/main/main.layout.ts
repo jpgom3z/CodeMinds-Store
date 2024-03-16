@@ -23,6 +23,7 @@ export class MainLayout implements OnInit, OnDestroy {
       light: 'dark',
       dark: 'light'
     };
+
     console.log('constructor main');
     this.subscriptions = new Subscription();
   }

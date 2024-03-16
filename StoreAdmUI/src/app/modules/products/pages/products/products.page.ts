@@ -4,6 +4,7 @@ import { ProductService } from '@services/product/product.service';
 import { Router } from '@angular/router';
 import { Observable, bindCallback } from 'rxjs';
 import { JsonPipe } from '@angular/common';
+import { LayoutService } from '@services/layout/layout.service';
 
 
 @Component({

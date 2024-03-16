@@ -17,4 +17,8 @@ body.light {
     --color-sidenav-category: rgba(198, 163, 226, 0.767);
     --color-sidenav-active: rgba(86, 28, 134, 0.685);
     --color-main: rgba(158, 180, 158, 0.712);
+    --color-table-background-odd: rgba(180, 163, 226, 0.473);
+    --color-table-background-even: rgba(81, 33, 255, 0.466);
+    --color-th-background: rgba(28, 70, 134, 0.473);
+    --color-sidenav-hover: #98d8f1;
 }

@@ -128,12 +128,13 @@ a:hover, a.active {
     font-size: 1.6rem;
     font-weight: 300;
     transition: background-color 0.1s linear;
+    width: 100%;
 }
 
 .sidenav .menu li:hover,
 .sidenav .menu li.active {
     background: var(--color-sidenav-active);
-    border-right: 0.4rem solid var(--color-main)
+    border-right: 0.4rem solid var(--color-sidenav-hover)
 }
 
 .sidenav .menu a {
@@ -163,6 +164,38 @@ article {
     font-size: 3rem;
     padding: 2rem;
 }
+
+table {
+    margin: 2rem;
+}
+
+table, th , td {
+    border: none;
+    border-collapse: collapse;
+    padding: 5px;
+    text-align: center;
+  }
+  
+  table tr:nth-child(odd) {
+    background-color: var(--color-table-background-odd);
+  }
+  
+  table tr:nth-child(even) {
+    background-color: var(--color-table-background-even);
+  }
+
+  section {
+    width: max-content;
+  }
+
+  .results {
+    padding-left: 26rem;
+  }
+
+  th {
+    background: var(--color-th-background);
+  }
+
 
 @media screen and (max-width: 1024px) {
 
@@ -202,4 +235,24 @@ article {
     main {
         width: 100%;
     }
+
+    table {
+        margin: 1rem;
+    }
+    
+    table, th , td {
+        padding: 2px;
+      }
+    
+      section {
+        width: max-content;
+      }
+    
+      .results {
+        padding-left: 2rem;
+      }
+    
+      th {
+        background: var(--color-th-background);
+      }
 }
